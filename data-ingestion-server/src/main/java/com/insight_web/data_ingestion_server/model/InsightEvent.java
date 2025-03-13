@@ -1,7 +1,9 @@
-package com.insight_web.data_ingestion_server.rest.model;
+package com.insight_web.data_ingestion_server.model;
 
+import lombok.Data;
 
-public class TrackerEventDto {
+@Data
+public class InsightEvent {
     private String eventType;
     private Long timestamp;
     private String userId;
@@ -11,3 +13,4 @@ public class TrackerEventDto {
     private String ip;
     private String userAgent;
 }
+
