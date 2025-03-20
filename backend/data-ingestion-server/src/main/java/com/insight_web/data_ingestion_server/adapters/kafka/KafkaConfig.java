@@ -1,6 +1,6 @@
-package com.insight_web.data_ingestion_server.config;
+package com.insight_web.data_ingestion_server.adapters.kafka;
 
-import com.insight_web.data_ingestion_server.model.InsightEvent;
+import com.insight_web.data_ingestion_server.domain.TrackerEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ public class KafkaConfig {
     private String bootstrapServers;
 
     @Bean
-    public ProducerFactory<String, InsightEvent> producerFactory() {
+    public ProducerFactory<String, TrackerEvent> producerFactory() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG,
@@ -29,7 +29,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public KafkaTemplate<String, InsightEvent> kafkaTemplate() {
+    public KafkaTemplate<String, TrackerEvent> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }
