@@ -1,6 +1,6 @@
 package com.insight_web.data_ingestion_server.adapters.kafka;
 
-import com.insight_web.data_ingestion_server.domain.TrackerEvent;
+import com.insight_web.domain.TrackerEvent;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

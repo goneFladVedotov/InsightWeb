@@ -1,0 +1,10 @@
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\PageViewTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\FormSubmitTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\TrackerEventType.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\ScrollTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\SessionStartTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\SessionEndTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\TimeOnPageTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\ClickTrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\TrackerEvent.java
+D:\IdeaProjects\InsightWeb\backend\events\src\main\java\com\insight_web\domain\CustomTrackerEvent.java

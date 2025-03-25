@@ -1,0 +1,10 @@
+com\insight_web\domain\ScrollTrackerEvent.class
+com\insight_web\domain\SessionEndTrackerEvent.class
+com\insight_web\domain\ClickTrackerEvent.class
+com\insight_web\domain\FormSubmitTrackerEvent.class
+com\insight_web\domain\TrackerEvent.class
+com\insight_web\domain\CustomTrackerEvent.class
+com\insight_web\domain\TrackerEventType.class
+com\insight_web\domain\PageViewTrackerEvent.class
+com\insight_web\domain\TimeOnPageTrackerEvent.class
+com\insight_web\domain\SessionStartTrackerEvent.class

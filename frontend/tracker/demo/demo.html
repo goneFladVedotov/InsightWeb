@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightWeb Demo Site</title>
+    <script src="client-tracker.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на демо-сайт InsightWeb!</h1>
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="trackPageView()">Главная</a></li>
+                <li><a href="#products" onclick="trackPageView()">Продукты</a></li>
+                <li><a href="#about" onclick="trackPageView()">О нас</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Главная страница</h2>
+            <p>Здесь начинается ваше путешествие с InsightWeb. Мы поможем вам анализировать поведение пользователей на вашем сайте.</p>
+            <button onclick="trackClick('home-btn')">Клик по кнопке</button>
+        </section>
+
+        <section id="products">
+            <h2>Продукты</h2>
+            <p>У нас есть множество продуктов для улучшения вашего бизнеса.</p>
+        </section>
+
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы предоставляем решения для аналитики и мониторинга в реальном времени.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 InsightWeb. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Инициализация трекера на сайте
+        const tracker = new InsightWebTracker('SITE-123');
+        tracker.init();
+
+        // Функция для отслеживания кликов по элементам
+        function trackPageView() {
+            tracker.trackPageView();
+        }
+
+        function trackClick(elementId) {
+            tracker.trackClick(elementId);
+        }
+    </script>
+</body>
+</html>

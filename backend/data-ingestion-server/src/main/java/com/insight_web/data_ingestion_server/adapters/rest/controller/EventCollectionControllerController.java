@@ -1,8 +1,7 @@
 package com.insight_web.data_ingestion_server.adapters.rest.controller;
 
-
-import com.insight_web.data_ingestion_server.domain.TrackerEvent;
 import com.insight_web.data_ingestion_server.usecase.TrackerEventProcessing;
+import com.insight_web.domain.TrackerEvent;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

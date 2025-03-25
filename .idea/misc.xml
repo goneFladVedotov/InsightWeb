@@ -6,10 +6,14 @@
       <list>
         <option value="$PROJECT_DIR$/data-ingestion-server/pom.xml" />
         <option value="$PROJECT_DIR$/analytics/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/analytics/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/data-ingestion-server/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/events/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/data-streaming-server/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" project-jdk-name="21" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_20" project-jdk-name="21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

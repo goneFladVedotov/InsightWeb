@@ -1,8 +1,8 @@
 package com.insight_web.data_ingestion_server.usecase;
 
-import com.insight_web.data_ingestion_server.domain.TrackerEvent;
 import com.insight_web.data_ingestion_server.usecase.analyticsIntegration.AnalyticsClient;
 import com.insight_web.data_ingestion_server.usecase.queueSender.QueueSender;
+import com.insight_web.domain.TrackerEvent;
 import org.springframework.stereotype.Service;
 
 @Service

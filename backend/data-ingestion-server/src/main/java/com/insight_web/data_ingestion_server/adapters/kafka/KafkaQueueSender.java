@@ -1,8 +1,8 @@
 package com.insight_web.data_ingestion_server.adapters.kafka;
 
-import com.insight_web.data_ingestion_server.domain.TrackerEvent;
 import com.insight_web.data_ingestion_server.usecase.TrackerEventProcessing;
 import com.insight_web.data_ingestion_server.usecase.queueSender.QueueSender;
+import com.insight_web.domain.TrackerEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
