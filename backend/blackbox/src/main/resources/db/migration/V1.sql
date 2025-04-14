@@ -1,0 +1,12 @@
+CREATE TABLE users(
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    roles JSONB NOT NULL
+);
+
+CREATE TABLE site(
+    id VARCHAR PRIMARY KEY,
+    site_name VARCHAR NOT NULL,
+    owner_id BIGINT NOT NULL REFERENCES users(id)
+);
