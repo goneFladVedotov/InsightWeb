@@ -6,22 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="data-streaming-server" />
-        <module name="demo" />
         <module name="events" />
-        <module name="data-ingestion-server" />
-      </profile>
-      <profile name="Annotation profile for blackbox" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="analytics" />
-        <module name="blackbox" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="analytics" target="19" />
+      <module name="blackbox" target="17" />
+      <module name="data-ingestion-server" target="19" />
+      <module name="data-streaming-server" target="19" />
+      <module name="demo" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
