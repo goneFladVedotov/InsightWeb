@@ -16,7 +16,7 @@ class HttpAuthClient(
 ): AuthClient {
     override fun isSiteExisted(userId: String): Boolean {
         val request = Request.Builder()
-            .url(authUrl)
+            .url("$authUrl/$userId")
             .build()
 
         // Выполняем запрос

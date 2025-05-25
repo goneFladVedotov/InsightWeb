@@ -1,6 +1,6 @@
 package com.insightweb.streaming.usecase
 
-import com.insightweb.streaming.usecase.storage.ClickHouseRepository
+import com.insightweb.streaming.usecase.repository.AggregatedMetricsRepository
 import com.insightweb.domain.TrackingEvent
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -9,7 +9,7 @@ import java.util.concurrent.LinkedBlockingDeque
 
 @Service
 class TrackingEventScheduler(
-    private val clickHouseRepository: ClickHouseRepository
+    private val aggregatedMetricsRepository: AggregatedMetricsRepository
 ) {
     private val deque: BlockingDeque<MutableList<TrackingEvent>> = LinkedBlockingDeque()
 
@@ -41,7 +41,7 @@ class TrackingEventScheduler(
     fun schedule() {
         val batch = deque.pollFirst()
         if (batch != null && batch.isNotEmpty()) {
-            clickHouseRepository.insertBatch(batch)
+            aggregatedMetricsRepository.insertEvents(batch)
         }
     }
 

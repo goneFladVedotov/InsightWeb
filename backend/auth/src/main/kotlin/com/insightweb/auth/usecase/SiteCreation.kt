@@ -17,7 +17,7 @@ class SiteCreation(
         siteAction: SiteAction,
         userEmail: String
     ): Site {
-        val userId: Long = userStorage.findByEmail(userEmail).id
+        val userId: Long = userStorage.findByEmail(userEmail).id!!
         val site: Site = siteAction.toSite(userId)
         return siteStorage.create(site)
     }

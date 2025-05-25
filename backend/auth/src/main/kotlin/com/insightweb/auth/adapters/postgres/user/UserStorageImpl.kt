@@ -13,7 +13,7 @@ class UserStorageImpl(
     override fun create(user: User): User =
         userRepository.save(UserEntity().fillForSaving(user)).toDomainModel()
 
-    override fun findById(id: Long): User = userRepository.findById(id)?.getOrNull()?.toDomainModel()
+    override fun findById(id: Long): User = userRepository.findById(id).getOrNull()?.toDomainModel()
         ?: throw ResourceNotFoundException("user by $id not found")
 
     override fun findByEmail(email: String): User = userRepository.findByEmail(email)?.toDomainModel() ?: throw ResourceNotFoundException("user by email $email not found")

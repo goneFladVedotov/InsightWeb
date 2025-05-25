@@ -11,9 +11,19 @@ sealed class TrackingEvent {
     abstract val sessionId: String
     abstract val url: String
     abstract val referrer: String
-    val metadata: Map<String, String> = emptyMap()
+    abstract val ip: String
+    abstract val deviceType: DeviceType
+    abstract val browser: String
+    abstract val os: String
+    abstract val language: String
 
     companion object {
         fun createTimestamp() = Instant.now().toEpochMilli()
     }
+}
+
+enum class DeviceType {
+    MOBILE,
+    DESKTOP,
+    TABLET
 }

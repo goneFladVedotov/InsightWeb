@@ -1,14 +1,17 @@
 package com.insightweb.auth.adapters.rest.controller
 
 import com.insightweb.auth.adapters.rest.auth.AuthProvider
+import com.insightweb.auth.adapters.rest.dto.PuidDto
 import com.insightweb.auth.adapters.rest.dto.SiteDto
 import com.insightweb.auth.adapters.rest.dto.SiteRequest
+import com.insightweb.auth.adapters.rest.dto.toPuidDto
 import com.insightweb.auth.adapters.rest.dto.toSiteDto
 import com.insightweb.auth.domain.AuthToken
 import com.insightweb.auth.usecase.SessionInitializing
 import com.insightweb.auth.usecase.SiteCreation
 import com.insightweb.auth.usecase.SiteSelection
 import com.insightweb.auth.usecase.UserRegistration
+import com.insightweb.auth.usecase.UserSelection
 import com.insightweb.auth.usecase.action.LoginAction
 import com.insightweb.auth.usecase.action.RegisterAction
 import com.insightweb.auth.usecase.action.SiteAction
@@ -25,6 +28,7 @@ class AuthController(
     private val siteCreation: SiteCreation,
     private val siteSelection: SiteSelection,
     private val userRegistration: UserRegistration,
+    private val userSelection: UserSelection,
     private val authProvider: AuthProvider,
 ) {
 
@@ -36,6 +40,12 @@ class AuthController(
     @PostMapping("/register")
     fun register(@RequestBody registerAction: RegisterAction) {
         userRegistration.register(registerAction)
+    }
+
+    @GetMapping
+    fun getPuid(): PuidDto {
+        val email = authProvider.getEmail()
+        return userSelection.select(email).toPuidDto()
     }
 
     @PostMapping("/site")

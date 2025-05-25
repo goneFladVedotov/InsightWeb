@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                           // Уровень JS для компиляции (ES2020 для широкого покрытия)
+    "useDefineForClassFields": true,              // Соответствие спецификации ESNext для полей класса
+    "module": "ESNext",                           // Тип модулей — ESM
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],     // Доступные библиотеки: ES2020 + браузерные API
+    "skipLibCheck": true,                         // Пропуск проверки типов в node_modules для ускорения сборки
+    "moduleResolution": "bundler",                // Алгоритм разрешения модулей, оптимальный для Vite/Rollup
+    "allowImportingTsExtensions": true,           // Разрешить импорты с расширением .ts/.tsx
+    "verbatimModuleSyntax": true,                 // Оставлять синтаксис импортов «как есть»
+    "moduleDetection": "force",                   // Принудительно определять модули (без автоопределения)
+    "noEmit": true,                               // Не генерировать JS-файлы (Vite обрабатывает это сам)
+    "strict": true,                               // Включить все строгие проверки TypeScript
+    "noUnusedLocals": true,                       // Ошибка при неиспользуемых локальных переменных
+    "noUnusedParameters": true,                   // Ошибка при неиспользуемых параметрах функций
+    "noFallthroughCasesInSwitch": true,           // Ошибка при «проваливании» кейсов в switch без break
+    "noUncheckedSideEffectImports": true,         // Ошибка при побочных эффектах импорта без аннотации
+    "resolveJsonModule": true,                    // Разрешить импорт JSON как модулей
+    "esModuleInterop": true,                      // Поддержка interop CommonJS ↔️ ESM
+    "jsx": "preserve",                            // Сохранение JSX-синтаксиса для дальнейшей обработки (React/Vue)
+    "sourceMap": true                             // Генерация карт исходников
+  },
+  "include": [
+    "src",
+    "index.html"
+  ]
+}

@@ -15,7 +15,7 @@ class SiteSelection(
     fun select(url: String): Site = siteStorage.findById(url)
     @Transactional
     fun selectAllNyOwner(ownerEmail: String): List<Site> {
-        val id = userStorage.findByEmail(ownerEmail).id
+        val id = userStorage.findByEmail(ownerEmail).id!!
         return siteStorage.findAllByOwnerId(id)
     }
 }

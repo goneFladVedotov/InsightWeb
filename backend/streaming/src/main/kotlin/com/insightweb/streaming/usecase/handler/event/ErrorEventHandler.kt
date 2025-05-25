@@ -2,15 +2,15 @@ package com.insightweb.streaming.usecase.handler.event
 
 import com.insightweb.domain.ErrorEvent
 import com.insightweb.streaming.usecase.TrackingEventScheduler
+import com.insightweb.streaming.usecase.repository.FastMetricsRepository
 import com.insightweb.streaming.usecase.session.SessionHandleEventPublisher
-import com.insightweb.streaming.usecase.storage.RedisRepository
 import org.springframework.stereotype.Service
 import kotlin.reflect.KClass
 
 @Service
 class ErrorEventHandler(
     private val trackingEventScheduler: TrackingEventScheduler,
-    private val redisRepo: RedisRepository,
+    private val fastMetricsRepository: FastMetricsRepository,
     private val sessionHandleEventPublisher: SessionHandleEventPublisher,
 
     ): TrackingEventHandler<ErrorEvent> {
@@ -21,27 +21,8 @@ class ErrorEventHandler(
         // Сохраняем информацию об ошибке для последующего анализа
         trackingEventScheduler.addToDeque(event)
 
-        // 2. МОНИТОРИНГ ОШИБОК
-        // Увеличиваем счетчик ошибок данного типа
-        redisRepo.increment("errors:${event.errorType}")
+        fastMetricsRepository.trackError(event.url, event.errorType, event.browser)
 
         sessionHandleEventPublisher.publish(event.sessionId)
-
-
-        /*        // 3. КРИТИЧЕСКИЕ ОШИБКИ
-                // Для критических ошибок инициируем алерт
-                if (isCriticalError(event.errorType)) {
-                    alertService.triggerErrorAlert(event)
-                }*/
     }
-
-    /**
-     * Определяет, является ли ошибка критической
-     * @param errorType тип ошибки
-     * @return true если ошибка требует немедленного реагирования
-     */
-    private fun isCriticalError(errorType: String): Boolean {
-        return errorType in setOf("payment_failed", "checkout_crash", "db_connection_lost")
-    }
-
 }
