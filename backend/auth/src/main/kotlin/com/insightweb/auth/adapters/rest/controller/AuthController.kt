@@ -9,12 +9,14 @@ import com.insightweb.auth.adapters.rest.dto.toSiteDto
 import com.insightweb.auth.domain.AuthToken
 import com.insightweb.auth.usecase.SessionInitializing
 import com.insightweb.auth.usecase.SiteCreation
+import com.insightweb.auth.usecase.SiteRemoving
 import com.insightweb.auth.usecase.SiteSelection
 import com.insightweb.auth.usecase.UserRegistration
 import com.insightweb.auth.usecase.UserSelection
 import com.insightweb.auth.usecase.action.LoginAction
 import com.insightweb.auth.usecase.action.RegisterAction
 import com.insightweb.auth.usecase.action.SiteAction
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -29,6 +31,7 @@ class AuthController(
     private val siteSelection: SiteSelection,
     private val userRegistration: UserRegistration,
     private val userSelection: UserSelection,
+    private val siteRemoving: SiteRemoving,
     private val authProvider: AuthProvider,
 ) {
 
@@ -64,5 +67,9 @@ class AuthController(
     fun getById(@RequestBody siteRequest: SiteRequest): SiteDto {
         return siteSelection.select(siteRequest.siteId).toSiteDto()
     }
-    
+
+    @DeleteMapping("/site")
+    fun deleteById(@RequestBody request: SiteRequest) {
+        siteRemoving.remove(request.siteId)
+    }
 }

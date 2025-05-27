@@ -3,7 +3,6 @@ package com.insightweb.streaming.usecase.handler.event
 import com.insightweb.domain.ConversionEvent
 import com.insightweb.streaming.usecase.TrackingEventScheduler
 import com.insightweb.streaming.usecase.repository.FastMetricsRepository
-import com.insightweb.streaming.usecase.session.SessionHandleEventPublisher
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import kotlin.reflect.KClass
@@ -12,7 +11,6 @@ import kotlin.reflect.KClass
 class ConversionEventHandler(
     private val trackingEventScheduler: TrackingEventScheduler,
     private val fastMetricsRepository: FastMetricsRepository,
-    private val sessionHandleEventPublisher: SessionHandleEventPublisher,
     ) : TrackingEventHandler<ConversionEvent> {
     override val supportedEventType: KClass<out ConversionEvent> = ConversionEvent::class
 
@@ -24,7 +22,5 @@ class ConversionEventHandler(
 
         // Конверсии по типам (покупка, регистрация и т.д.)
         fastMetricsRepository.trackConversion(event.url, event.type, event.value!!)
-
-        sessionHandleEventPublisher.publish(event.sessionId)
     }
 }

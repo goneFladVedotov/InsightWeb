@@ -15,4 +15,7 @@ class SiteStorageImpl(
 
     override fun findAllByOwnerId(ownerId: Long): List<Site> = siteRepository.findAllByOwnerId(ownerId).map { it.toDomainModel() }
     override fun create(site: Site): Site = siteRepository.save(SiteEntity().fillForSaving(site)).toDomainModel()
+    override fun deleteById(siteId: String) {
+        siteRepository.deleteById(siteId)
+    }
 }

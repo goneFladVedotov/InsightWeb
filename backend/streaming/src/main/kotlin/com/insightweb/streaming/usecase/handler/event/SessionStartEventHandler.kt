@@ -3,7 +3,6 @@ package com.insightweb.streaming.usecase.handler.event
 import com.insightweb.domain.SessionStartEvent
 import com.insightweb.streaming.usecase.TrackingEventScheduler
 import com.insightweb.streaming.usecase.repository.FastMetricsRepository
-import com.insightweb.streaming.usecase.session.SessionTrackingService
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import kotlin.reflect.KClass

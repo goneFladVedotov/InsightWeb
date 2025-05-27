@@ -3,7 +3,6 @@ package com.insightweb.streaming.usecase.handler.event
 import com.insightweb.domain.ClickEvent
 import com.insightweb.streaming.usecase.TrackingEventScheduler
 import com.insightweb.streaming.usecase.repository.FastMetricsRepository
-import com.insightweb.streaming.usecase.session.SessionHandleEventPublisher
 import jakarta.transaction.Transactional
 import org.springframework.stereotype.Service
 import kotlin.reflect.KClass
@@ -12,7 +11,6 @@ import kotlin.reflect.KClass
 class ClickEventHandler(
     private val trackingEventScheduler: TrackingEventScheduler,
     private val fastMetricsRepository: FastMetricsRepository,
-    private val sessionHandleEventPublisher: SessionHandleEventPublisher,
     ): TrackingEventHandler<ClickEvent> {
     override val supportedEventType: KClass<out ClickEvent> = ClickEvent::class
 
@@ -23,7 +21,5 @@ class ClickEventHandler(
         trackingEventScheduler.addToDeque(event)
 
         fastMetricsRepository.trackClick(event.url, event.elementId)
-
-        sessionHandleEventPublisher.publish(event.sessionId)
     }
 }

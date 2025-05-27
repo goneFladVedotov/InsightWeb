@@ -6,4 +6,5 @@ interface SiteStorage {
     fun findById(siteId: String): Site
     fun findAllByOwnerId(ownerId: Long): List<Site>
     fun create(site: Site): Site
+    fun deleteById(siteId: String)
 }
