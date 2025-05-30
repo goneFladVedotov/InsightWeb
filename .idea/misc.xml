@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/backend/analytics" />
     <file type="web" url="file://$PROJECT_DIR$/backend/auth" />
     <file type="web" url="file://$PROJECT_DIR$/backend/domain" />
     <file type="web" url="file://$PROJECT_DIR$/backend/ingestion" />
     <file type="web" url="file://$PROJECT_DIR$/backend/streaming" />
+    <file type="web" url="file://$PROJECT_DIR$/demo" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/data-ingestion-server/pom.xml" />
         <option value="$PROJECT_DIR$/analytics/pom.xml" />
-        <option value="$PROJECT_DIR$/backend/events/pom.xml" />
       </list>
     </option>
   </component>

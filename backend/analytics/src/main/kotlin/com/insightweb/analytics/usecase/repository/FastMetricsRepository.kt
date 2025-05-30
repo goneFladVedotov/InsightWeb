@@ -11,7 +11,7 @@ interface FastMetricsRepository {
     fun getErrorStats(url: String, browser: String): Long
 
     // Топ поисковых запросов
-    fun getTopSearch(url: String, limit: Int = 5): String
+    fun getTopSearch(url: String, limit: Int = 5): List<String>
 
     // Конверсии по типу
     fun getConversions(url: String, type: String): Double
